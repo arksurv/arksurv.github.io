@@ -75,7 +75,7 @@ function displayItemData(item) {
             //imgDiv.style.backgroundPosition = "0% 10%";
             //imgDiv.style.backgroundSize = "10% 10%";
             //imgDiv.style.backgroundRepeat = "no-repeat"; (itemImage[1][1] * 100 / image.naturalHeight)  itemImage[1][1] + 0.25 * itemImage[1][3])
-            imgDiv.style.background = "url(\"" + itemImage[0] + "\") " + (itemImage[1][0] * 106.25 / image.naturalWidth) + "% " + (itemImage[1][1] * 106.25 / image.naturalHeight) + "% / " + (image.naturalWidth * 100 / itemImage[1][2]) + "% " + (image.naturalHeight * 100 / itemImage[1][3]) + "% no-repeat";
+            imgDiv.style.background = "url(\"" + itemImage[0] + "\") " + (itemImage[1][0] / image.naturalWidth) + "% " + (itemImage[1][1] / image.naturalHeight) + "% / " + (image.naturalWidth * 100 / itemImage[1][2]) + "% " + (image.naturalHeight * 100 / itemImage[1][3]) + "% no-repeat";
             //imgDiv.style.background = "url(\"" + itemImage[0] + "\") " + itemImage[1][0] + "px " + itemImage[1][1] + "px / " + itemImage[1][2] + "px " + itemImage[1][3] + "px no-repeat";
             //image.alt = "Image of " + item;
             //image.style.clipPath = "inset(25.04% 31.31% 0% 6.06%)"; //"inset(" + item[1][1] + "px " + (item[1][1] + item[1][3]) + "px " + item[1][0] + "px " + (item[1][0] + item[1][2]) + "px)";
