@@ -5,5 +5,16 @@
   <script src="scripts/main.js" defer /></script>
 </head>
 <body>
-  <p>test</p>
+  <header>
+    <h1>Cromptopia! - A Growtopia Price Viewer</h1>
+    <input type="search" id="item-search" name="item-search" list="items">
+    <datalist id="items"></datalist> <!-- this is modified when we get data in javascript -->
+    <input type="button" onclick="checkItem()" value="Check Item">
+  </header>
+  <article>
+    <div></div>
+  </article>
+  <footer>
+    <h1><em>a Crompter project</em></h1>
+  </footer>
 </body>
