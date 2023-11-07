@@ -19,7 +19,7 @@ footer {
 
 div#popup-overlay {
   display: grid;
-  grid-template: auto auto auto / auto auto auto auto auto;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:  'name name name img img'
                         'cur cur cur img img'
                         'hist hist hist hist hist';
@@ -34,6 +34,10 @@ div#popup-overlay {
   height: 40%;
 
   border: 3px white double;
+}
+
+div#popup-overlay * {
+  max-width: 100%;
 }
 
 div#popup-overlay h1 {

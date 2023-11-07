@@ -52,15 +52,45 @@ function displayItemData(item) {
             heading.style.gridArea = "name";
             div.appendChild(heading);
     
-            let image = document.createElement("img");
-            image.src = sublinks.images[item];
-            image.alt = "Image of " + item;
-            image.style.gridArea = "img";
-            div.appendChild(image);
+            /*let canvas = document.createElement("canvas");
+            let context = canvas.getContext("2d");
+            canvas.style.gridArea = "img";
+            div.appendChild(canvas);
+            
+            context.drawImage(image, item[1][0], item[1][1], item[1][2], item[1][3]);
+            */
+            
+            let imgDiv = document.createElement("div");
+            imgDiv.style.gridArea = "img";
+            imgDiv.style.width = "auto";
+            imgDiv.style.height = "auto";
+            div.appendChild(imgDiv);
+
+            let itemImage = sublinks.images[item]
+
+            let image = new Image();
+            image.src = itemImage[0];
+            
+            //imgDiv.style.backgroundImage = "url(\"https://i.imgur.com/alNHHJ6.png\")";
+            //imgDiv.style.backgroundPosition = "0% 10%";
+            //imgDiv.style.backgroundSize = "10% 10%";
+            //imgDiv.style.backgroundRepeat = "no-repeat"; (itemImage[1][1] * 100 / image.naturalHeight)  itemImage[1][1] + 0.25 * itemImage[1][3])
+            imgDiv.style.background = "url(\"" + itemImage[0] + "\") " + (itemImage[1][0] * 106.25 / image.naturalWidth) + "% " + (itemImage[1][1] * 106.25 / image.naturalHeight) + "% / " + (image.naturalWidth * 100 / itemImage[1][2]) + "% " + (image.naturalHeight * 100 / itemImage[1][3]) + "% no-repeat";
+            //imgDiv.style.background = "url(\"" + itemImage[0] + "\") " + itemImage[1][0] + "px " + itemImage[1][1] + "px / " + itemImage[1][2] + "px " + itemImage[1][3] + "px no-repeat";
+            //image.alt = "Image of " + item;
+            //image.style.clipPath = "inset(25.04% 31.31% 0% 6.06%)"; //"inset(" + item[1][1] + "px " + (item[1][1] + item[1][3]) + "px " + item[1][0] + "px " + (item[1][0] + item[1][2]) + "px)";
+            //imgDiv.appendChild(image);
     
             let currentDiv = document.createElement("div");
             currentDiv.style.gridArea = "cur";
             div.appendChild(currentDiv);
+
+            if (data.sample) {
+                let sampleNotice = document.createElement("h1");
+                sampleNotice.textContent = "THIS IS A SAMPLE VALUE!!! THIS IS NOT THE REAL VALUE OF THE ITEM!!!";
+                sampleNotice.style.color = "red";
+                currentDiv.appendChild(sampleNotice);
+            }
 
             let current = document.createElement("h2");
             current.textContent = "Current Price: " + data.price + " WL(s) for " + data.amount + " item(s)."
@@ -75,7 +105,7 @@ function displayItemData(item) {
             historicalDiv.style.gridArea = "hist";
             div.appendChild(historicalDiv);
     
-            document.body.appendChild(div);
+            document.getElementById("main-article-section").appendChild(div);
 
             for (let x in history) {
                 fetch(history[x].url).then((response) => {
