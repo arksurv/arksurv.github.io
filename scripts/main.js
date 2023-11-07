@@ -77,7 +77,6 @@ function displayItemData(item) {
     
             document.body.appendChild(div);
 
-            console.log(history);
             for (let x in history) {
                 fetch(history[x].url).then((response) => {
                     return response.json();
