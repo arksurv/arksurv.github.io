@@ -37,7 +37,7 @@ con = setInterval(hasData, 100);
 
 function displayItemData(item) {
     let history;
-    fetch(sublinks.items[item]).then((response) => {
+    fetch("https://api.github.com/gists/" + sublinks.items[item]).then((response) => {
         return response.json();
     }).then((data) => {
         history = data.history;
